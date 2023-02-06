@@ -1,0 +1,43 @@
+% Based on infolines theme by Till Tantau <tantau@users.sourceforge.net>
+%
+% This program can be redistributed and/or modified under the terms
+% of the GNU Public License, version 2.
+%
+% Edited to use MST colors and various modifications: Kyle DeMars, 02/13/2013
+
+\mode<presentation>
+
+\beamer@compresstrue
+
+\defbeamertemplate*{footline}{UB theme}
+{
+\leavevmode%
+\hbox{%
+\begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{author in footer}%
+	\insertshortauthor
+\end{beamercolorbox}%
+\begin{beamercolorbox}[wd=.50\paperwidth,ht=2.25ex,dp=1ex,center]{title in footer}%
+	\insertshorttitle
+\end{beamercolorbox}%
+\begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,right]{pagenumber in footer}%
+	\insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+\end{beamercolorbox}}%
+\vskip0pt%
+}
+
+\defbeamertemplate*{headline}{smoothbars theme}
+{%
+\begin{beamercolorbox}[wd=.75\paperwidth,ht=2.25ex,dp=3.75ex]{section in head/foot}
+	\insertnavigation{\navlen}
+\end{beamercolorbox}%
+}%
+
+\defbeamertemplate*{frametitle}{smoothbars theme}
+{%
+\begin{beamercolorbox}[wd=\paperwidth,leftskip=.3cm,rightskip=.3cm plus1fil,vmode]{frame title}
+	\usebeamerfont*{frametitle}\insertframetitle
+\end{beamercolorbox}
+}
+
+\mode
+<all>

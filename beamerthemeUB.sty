@@ -1,0 +1,116 @@
+%
+% Loosely based on Boadilla by Manuel Carro
+%
+% Original:
+% Copyright 2004 by Manuel Carro <mcarro@fi.upm.es>
+%
+% This program can be redistributed and/or modified under the terms
+% of the GNU Public License, version 2.
+%
+% Edited to use MST colors: Kyle DeMars, 02/13/2013
+
+\mode<presentation>
+
+\newif\ifbeamer@secheader
+\beamer@secheaderfalse
+
+\DeclareOptionBeamer{secheader}{\beamer@secheadertrue}
+\ProcessOptionsBeamer
+
+\useoutertheme{UB}
+
+\setbeamertemplate{itemize item}{\hbox{\donotcoloroutermaths$\bullet$}}
+\setbeamertemplate{itemize subitem}{\hbox{\donotcoloroutermaths$\circ$}}
+\setbeamertemplate{itemize subsubitem}{\hbox{\donotcoloroutermaths$-$}}
+\setbeamertemplate{enumerate item}{\arabic{enumi}.}
+\setbeamertemplate{enumerate subitem}{(\alph{enumii})}
+\setbeamertemplate{enumerate subsubitem}{\roman{enumiii}.}
+\setbeamertemplate{caption item}{\arabic{label}.}
+
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{caption}[numbered]
+
+% Color definitions
+\definecolor{uibred}{RGB}{20, 0, 0}
+\definecolor{uibblue}{RGB}{0, 91, 187}
+\definecolor{UBblue}{RGB}{0,91,187}
+\definecolor{UBwhite}{RGB}{255,255,255}
+
+% Redefinition of beamer colors
+\setbeamercolor{enumerate item}{fg=UBblue,bg=UBblue!20!UBwhite}
+\setbeamercolor{enumerate subitem}{fg=UBblue,bg=UBblue!20!UBwhite}
+\setbeamercolor{enumerate subsubitem}{fg=UBblue,bg=UBblue}
+\setbeamercolor{itemize item}{fg=UBblue,bg=UBblue!20!UBwhite}
+\setbeamercolor{itemize subitem}{fg=UBblue,bg=UBblue!20!UBwhite}
+\setbeamercolor{itemize subsubitem}{fg=UBblue,bg=UBblue}
+\setbeamercolor{title}{fg=UBwhite}
+\setbeamercolor{author}{fg=UBwhite}
+\setbeamercolor{institute}{fg=UBwhite}
+\setbeamercolor{date}{fg=UBwhite}
+\setbeamercolor{section}{fg=UBblue}
+\setbeamercolor{subsection}{fg=UBblue}
+\setbeamercolor{itemize}{fg=UBblue}
+\setbeamercolor{alerted text}{fg=uibred}
+
+\setbeamercolor{block body}{fg=black,bg=UBblue!20!UBwhite}
+\setbeamercolor{block title}{fg=UBwhite,bg=UBblue}
+\setbeamercolor{block body example}{fg=black,bg=UBwhite!20!UBwhite}
+\setbeamercolor{block title example}{fg=UBwhite,bg=UBwhite}
+\setbeamercolor{block body alerted}{fg=black,bg=uibred!20!UBwhite}
+\setbeamercolor{block title alerted}{fg=UBwhite,bg=uibred}
+
+\setbeamercolor{author in footer}{fg=UBwhite,bg=UBblue!95!UBwhite}
+\setbeamercolor{title in footer}{fg=UBwhite,bg=UBblue!85!UBwhite}
+\setbeamercolor{pagenumber in footer}{fg=UBwhite,bg=UBblue!75!UBwhite}
+\setbeamercolor{frame title}{fg=UBwhite}
+\setbeamercolor{section in head/foot}{fg=UBwhite, bg=UBblue}
+\setbeamercolor{section in toc}{fg=UBblue}
+\setbeamercolor{qed symbol}{fg=UBblue}
+\setbeamercolor{caption name}{fg=UBblue}
+
+% Set some options
+\setbeamercovered{transparent}
+\usefonttheme[onlymath]{serif}
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\setbeamerfont{title}{size=\LARGE,series=\bfseries}
+\setbeamerfont{section in toc}{series=\bfseries}
+\setbeamerfont{caption name}{series=\bfseries}
+
+% Remove navigation symbols
+\beamertemplatenavigationsymbolsempty
+
+% controls how close to the sides the text can get
+\setbeamersize{text margin left=1em,text margin right=1em}
+
+\ifbeamer@secheader\else\setbeamertemplate{headline}[default]\fi
+
+% Controls the background image on the first slide and the remaining slides
+%   may be able to add a final slide background image as well
+%   background on first slide seems to be too low
+\setbeamertemplate{background canvas}{%
+    \ifnum\c@framenumber=1%
+        \includegraphics[width=\paperwidth,height=\paperheight]{bg_front_ub.pdf}
+    \else%
+        \includegraphics[width=1.1\paperwidth]{bg_slide_ub.pdf}
+    \fi%
+}
+% Controls the footline appearance
+\setbeamertemplate{footline}[%
+    \ifnum\c@framenumber=1%
+        default
+    \else%
+        UB theme
+    \fi%
+]
+% Controls the headline progress bar appearance
+\setbeamertemplate{headline}[smoothbars theme]
+% Controls the appearance of the frame titles
+%\setbeamertemplate{frametitle}[%
+%    \ifnum\c@framenumber=1%
+%    \else%
+%        smoothbars theme
+%    \fi%
+%]
+\setbeamertemplate{frametitle}[smoothbars theme]
+\mode
+<all>
